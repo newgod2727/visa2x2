@@ -1054,7 +1054,16 @@ $("backToCheck").addEventListener("click", function(){ go(2); });
   $("payTo").textContent = CFG.payTo;
   $("payLead").textContent = "Send " + CFG.price + " " + CFG.token.symbol + " on the " +
     CFG.chain.name + " network to the address below, then paste the transaction hash. Nothing else is asked of you.";
-  try { drawQR($("qr"), CFG.payTo); } catch(e){ $("qr").parentNode.style.display = "none"; }
+  try {
+    drawQR($("qr"), CFG.payTo);
+  } catch(e){
+    var box = $("qr").parentNode;
+    box.style.background = "var(--bg3)";
+    box.style.display = "grid";
+    box.style.placeItems = "center";
+    box.style.padding = "14px";
+    box.textContent = "QR unavailable, copy the address instead";
+  }
 })();
 
 $("copyAddr").addEventListener("click", function(){
@@ -1441,18 +1450,22 @@ function penalty(m, n){
   return s;
 }
 
-/* Reed-Solomon over GF(256) */
-var GF_EXP = new Uint8Array(512), GF_LOG = new Uint8Array(256);
-(function initGF(){
+/* Reed-Solomon over GF(256). The tables build on first use, not at load,
+   so it does not matter where in the file the first caller sits. */
+var GF_EXP = null, GF_LOG = null;
+function initGF(){
+  if (GF_EXP) return;
+  GF_EXP = new Uint8Array(512); GF_LOG = new Uint8Array(256);
   var v = 1;
   for (var i = 0; i < 255; i++){
     GF_EXP[i] = v; GF_LOG[v] = i;
     v <<= 1; if (v & 0x100) v ^= 0x11D;
   }
   for (var j = 255; j < 512; j++) GF_EXP[j] = GF_EXP[j - 255];
-})();
+}
 function gmul(a, b){ if (!a || !b) return 0; return GF_EXP[GF_LOG[a] + GF_LOG[b]]; }
 function rsEncode(data, ecLen){
+  initGF();
   var gen = [1];
   for (var i = 0; i < ecLen; i++){
     var next = new Array(gen.length + 1).fill(0);
