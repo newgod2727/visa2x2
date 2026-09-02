@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>US visa photo 2x2 online - DS-160 ready JPEG</title>
-<meta name="description" content="Make a US visa 2x2 photo you can upload to DS-160. Exactly 600x600 pixels, under 240 KB, plain white background. Cropped on your own phone. Your photo is never uploaded. 4 USDC.">
+<meta name="description" content="Make a US visa 2x2 photo you can upload to DS-160. Exactly 600x600 pixels, under 240 KB, plain white background. Cropped on your own phone. Your photo is never uploaded. $4.99 by card, or 4 USDC.">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#14110d">
 <meta property="og:title" content="US visa photo 2x2 online - DS-160 ready JPEG">
-<meta property="og:description" content="600x600, under 240 KB, plain white background. Cropped in your browser, never uploaded. 4 USDC.">
+<meta property="og:description" content="600x600, under 240 KB, plain white background. Cropped in your browser, never uploaded. $4.99 by card, or 4 USDC.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -195,6 +195,19 @@ h1,h2,h3,.disp{font-family:'Fraunces',Georgia,serif;font-weight:700;line-height:
 }
 .field input:focus{outline:2px solid var(--gold-dp);outline-offset:1px}
 
+.picks{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.pick{
+  font:inherit;text-align:left;cursor:pointer;color:var(--ink);
+  background:var(--bg3);border:1px solid var(--line);border-radius:var(--r);padding:20px;
+  display:grid;gap:5px;transition:border-color .13s,background .13s;
+}
+.pick:hover{border-color:var(--gold-dp);background:#2a2419}
+.pick:active{transform:scale(.99)}
+.pick b{font-family:'Fraunces',serif;font-size:1.2rem;color:var(--gold-hi);font-weight:700}
+.pick .amt{font-family:'JetBrains Mono',monospace;font-size:1.6rem;color:var(--ink);line-height:1.2}
+.pick i{font-style:normal;font-size:.82rem;color:var(--ink-faint);line-height:1.5}
+.pick[aria-pressed="true"]{border-color:var(--gold);background:#2a2419}
+
 .note{
   margin-top:18px;padding:14px 16px;border-radius:var(--rs);font-size:.88rem;line-height:1.6;
   background:var(--bg3);border:1px solid var(--line);color:var(--ink-dim);
@@ -253,7 +266,7 @@ footer a{color:var(--gold-dp)}
       <div class="fact"><b>600 x 600 px</b><i>Exactly 2 x 2 inches at 300 dpi</i></div>
       <div class="fact"><b>Under 240 KB</b><i>The DS-160 upload limit</i></div>
       <div class="fact"><b>Never uploaded</b><i>Cropping runs in your browser</i></div>
-      <div class="fact"><b>4 USDC</b><i>Refund if rejected on size</i></div>
+      <div class="fact"><b>$4.99 or 4 USDC</b><i>Card or stablecoin. Refund if rejected on size</i></div>
     </div>
   </section>
 
@@ -336,16 +349,32 @@ footer a{color:var(--gold-dp)}
     <div class="btnrow">
       <button class="btn ghost" id="backToFit">Change the crop</button>
       <button class="btn ghost" id="sampleDl">Download a watermarked sample</button>
-      <button class="btn primary" id="toPay">Pay and get the real file</button>
+      <button class="btn primary" id="toPay">Pay and download it</button>
     </div>
   </section>
 
   <!-- ============ STEP 4 ============ -->
   <section class="view" id="v3">
-    <h2>Pay <span id="payAmtTitle">4 USDC</span></h2>
-    <p class="lead" id="payLead">Send it on the Base network to the address below, then paste the transaction hash. Nothing else is asked of you.</p>
+    <h2>Pay</h2>
+    <p class="lead">Card is the quick way. Stablecoin is a little cheaper because there is no processing fee.</p>
 
-    <div class="card">
+    <div class="card tight" id="payPick">
+      <div class="picks">
+        <button class="pick" id="pickCard">
+          <b>Card</b>
+          <span class="amt">$4.99</span>
+          <i>Visa, Mastercard, Apple Pay, Google Pay. Handled by Stripe, this page never sees your card.</i>
+        </button>
+        <button class="pick" id="pickCrypto">
+          <b>USDC</b>
+          <span class="amt">4.00</span>
+          <i>On the Base network. Cheaper, but you need a wallet with USDC already in it.</i>
+        </button>
+      </div>
+      <div class="note" id="cardNote">You will be taken to Stripe, then brought straight back here with your file ready. Your crop stays in this tab while you pay.</div>
+    </div>
+
+    <div class="card hidden" id="cryptoBox">
       <div class="payslab">
         <div class="qrbox"><canvas id="qr" width="174" height="174"></canvas></div>
         <div class="paylines">
@@ -366,9 +395,12 @@ footer a{color:var(--gold-dp)}
         <button class="btn primary" id="verify">Check the payment</button>
       </div>
       <div class="note hidden" id="payNote"></div>
+      <div class="note">Send the exact token on the exact network shown above. A transfer sent on a different network cannot be recovered by anyone, including us.</div>
     </div>
 
-    <div class="note">Send the exact token on the exact network shown above. A transfer sent on a different network cannot be recovered by anyone, including us.</div>
+    <div class="btnrow">
+      <button class="btn ghost" id="backToCheck2">Back to the check</button>
+    </div>
   </section>
 
   <!-- ============ STEP 5 ============ -->
@@ -388,15 +420,15 @@ footer a{color:var(--gold-dp)}
       </div>
     </div>
 
-    <div class="note good">If a consulate or the DS-160 portal turns this file down because of its size, its dimensions or its file size, email <a href="mailto:benben@at-creative.com" style="color:inherit">benben@at-creative.com</a> with the rejection message and the 4 USDC goes back to the address you sent it from. That does not cover a rejection for a busy background, glasses, an expression or lighting, because those are in the photo you took.</div>
+    <div class="note good">If a consulate or the DS-160 portal turns this file down because of its size, its dimensions or its file size, email <a href="mailto:benben@at-creative.com" style="color:inherit">benben@at-creative.com</a> with the rejection message and you get your money back, to the card or to the address you paid from. That does not cover a rejection for a busy background, glasses, an expression or lighting, because those are in the photo you took.</div>
   </section>
 
   <section class="faq">
     <h2 style="font-size:1.4rem;margin-top:52px">Questions people actually ask</h2>
     <details><summary>Does my photo get uploaded anywhere?</summary>
       <p>No. The cropping, the resizing and the JPEG compression all run inside this page on your own device. There is no server that receives the picture, no gallery, no account and no backup. When you close the tab it is gone. The only thing that ever leaves your device is the payment, and that goes to the blockchain, not to us.</p></details>
-    <details><summary>Why can I not pay with a card?</summary>
-      <p>Card processing needs a merchant account this site does not have yet. Today it takes one stablecoin on one network, which keeps the price at 4 instead of 4 plus fees. If you have no wallet, this is not the right site for you and you should not waste your time on it.</p></details>
+    <details><summary>Card or stablecoin?</summary>
+      <p>Card is $4.99 and goes through Stripe, so this page never touches your card number. USDC is 4.00 on the Base network and costs less because there is no processing fee, but you need a wallet that already holds USDC. Most people should just use the card.</p></details>
     <details><summary>Can you fix the background for me?</summary>
       <p>No, and that is deliberate. Since January 2026 the US State Department rejects photos where the background has been digitally replaced. A tool that paints a white wall behind you is selling you a rejection. Stand in front of a real plain wall instead.</p></details>
     <details><summary>Will it retouch my face?</summary>
@@ -404,12 +436,12 @@ footer a{color:var(--gold-dp)}
     <details><summary>Does this work for a Schengen or a passport photo?</summary>
       <p>Not yet. Right now this makes one thing: the US 2 x 2 at 600 x 600 pixels.</p></details>
     <details><summary>My DS-160 says the photo failed. What now?</summary>
-      <p>Read what it says. If it names the dimensions, the aspect ratio or the file size, that is on this tool and you get your 4 USDC back. If it names your expression, your glasses, the lighting or the background, retake the photo and run it through again at no extra cost within 30 days, using the same transaction hash.</p></details>
+      <p>Read what it says. If it names the dimensions, the aspect ratio or the file size, that is on this tool and you get your money back. If it names your expression, your glasses, the lighting or the background, retake the photo and run it through again at no extra cost within 30 days, using the same transaction hash.</p></details>
   </section>
 
   <footer>
     <p>This site is not affiliated with, endorsed by or connected to the United States Department of State, any US embassy or consulate, or any government agency. It is a photo cropping tool.</p>
-    <p>Privacy: photographs are processed in your browser and are never transmitted, stored, sold or used to train anything. No cookies are set. No analytics run on this page.</p>
+    <p>Privacy: photographs are processed in your browser and are never transmitted to this site, stored on a server, sold or used to train anything. If you pay by card, the finished file is held in this browser tab while you are on Stripe and is cleared the moment it is handed back to you. No analytics run on this page.</p>
     <p>Contact <a href="mailto:benben@at-creative.com">benben@at-creative.com</a></p>
   </footer>
 </main>
@@ -421,7 +453,9 @@ footer a{color:var(--gold-dp)}
    CONFIG - the only block that changes when the money side changes
    ================================================================== */
 var CFG = {
-  price: 4,                       // amount the buyer pays
+  price: 4,                       // stablecoin price
+  cardPrice: "4.99",              // card price, higher because Stripe takes a fee
+  cardLink: "https://buy.stripe.com/6oUeVd3Snbb98CB9cn04800",
   payTo: "0x50f3e89C18e3967426bfFaf731E43260E7457EB7",
   contact: "benben@at-creative.com",
   // The network shown on the page. It MUST be a network the receiving
@@ -1046,14 +1080,55 @@ function saveBlob(blob, name){
 $("toPay").addEventListener("click", function(){ unlock(3); go(3); });
 $("backToCheck").addEventListener("click", function(){ go(2); });
 
+/* ---- card, through a Stripe payment link ---- */
+$("pickCard").addEventListener("click", function(){
+  if (!out.blob){ go(2); return; }
+  var fr = new FileReader();
+  fr.onload = function(){
+    try {
+      sessionStorage.setItem("v2x2_hold", JSON.stringify({
+        img: fr.result, bytes: out.bytes,
+        head: (out.geom || geometry()).head, eye: (out.geom || geometry()).eye
+      }));
+    } catch(e){}
+    window.location.href = CFG.cardLink;
+  };
+  fr.onerror = function(){ window.location.href = CFG.cardLink; };
+  fr.readAsDataURL(out.blob);
+});
+$("pickCrypto").addEventListener("click", function(){
+  $("pickCrypto").setAttribute("aria-pressed", "true");
+  $("pickCard").setAttribute("aria-pressed", "false");
+  $("cryptoBox").classList.remove("hidden");
+  $("cryptoBox").scrollIntoView({ behavior: "smooth", block: "start" });
+});
+$("backToCheck2").addEventListener("click", function(){ go(2); });
+
+/* coming back from Stripe: the crop is waiting in this tab */
+(function returnFromCard(){
+  var m = /[?&]paid=(cs_[A-Za-z0-9_]+)/.exec(window.location.search);
+  if (!m) return;
+  var raw = null;
+  try { raw = sessionStorage.getItem("v2x2_hold"); } catch(e){}
+  if (!raw) return;
+  var held;
+  try { held = JSON.parse(raw); } catch(e){ return; }
+  fetch(held.img).then(function(r){ return r.blob(); }).then(function(b){
+    out.blob = b; out.bytes = held.bytes;
+    if (out.url) URL.revokeObjectURL(out.url);
+    out.url = URL.createObjectURL(b);
+    out.geom = { head: held.head, eye: held.eye, headOK: true, eyeOK: true };
+    try { sessionStorage.removeItem("v2x2_hold"); } catch(e){}
+    history.replaceState(null, "", window.location.pathname);
+    unlock(4); openFinal();
+  }).catch(function(){});
+})();
+
 (function initPay(){
-  $("topPrice").textContent = CFG.price + " " + CFG.token.symbol;
-  $("payAmtTitle").textContent = CFG.price + " " + CFG.token.symbol;
+  $("topPrice").textContent = "$4.99 or 4 USDC";
   $("payAmt").textContent = CFG.price.toFixed(2) + " " + CFG.token.symbol;
   $("payNet").textContent = CFG.chain.name + "  (chain id " + CFG.chain.id + ")";
   $("payTo").textContent = CFG.payTo;
-  $("payLead").textContent = "Send " + CFG.price + " " + CFG.token.symbol + " on the " +
-    CFG.chain.name + " network to the address below, then paste the transaction hash. Nothing else is asked of you.";
   try {
     drawQR($("qr"), CFG.payTo);
   } catch(e){
