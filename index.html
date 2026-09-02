@@ -1,0 +1,1485 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>US visa photo 2x2 online - DS-160 ready JPEG</title>
+<meta name="description" content="Make a US visa 2x2 photo you can upload to DS-160. Exactly 600x600 pixels, under 240 KB, plain white background. Cropped on your own phone. Your photo is never uploaded. 4 USDC.">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#14110d">
+<meta property="og:title" content="US visa photo 2x2 online - DS-160 ready JPEG">
+<meta property="og:description" content="600x600, under 240 KB, plain white background. Cropped in your browser, never uploaded. 4 USDC.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Spline+Sans:wght@400;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2314110d'/%3E%3Crect x='7' y='6' width='18' height='20' rx='3' fill='%23f3cf99'/%3E%3Ccircle cx='16' cy='14' r='4.4' fill='%2314110d'/%3E%3Cpath d='M8.6 26c1.4-4.2 4.2-6.2 7.4-6.2s6 2 7.4 6.2z' fill='%2314110d'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#14110d; --bg2:#1c1811; --bg3:#241f16; --line:#3a3125;
+  --gold:#e7b173; --gold-hi:#f3cf99; --gold-dp:#c98e4a;
+  --ink:#f4ece0; --ink-dim:#b6a893; --ink-faint:#8a7d6c;
+  --pass:#9bbf95; --fail:#e09181;
+  --r:14px; --rs:10px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{
+  font-size:19px; scrollbar-width:thin; scrollbar-color:#c98e4a #16120d;
+  -webkit-text-size-adjust:100%;
+}
+::-webkit-scrollbar{width:14px;height:14px}
+::-webkit-scrollbar-track{background:#16120d;border-radius:999px}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#e7b173,#c98e4a);border-radius:999px;border:3px solid #16120d}
+::-webkit-scrollbar-thumb:hover{background:#f3cf99}
+::-webkit-scrollbar-button{display:none;width:0;height:0}
+::-webkit-scrollbar-corner{background:#16120d}
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:'Spline Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  line-height:1.7; -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+h1,h2,h3,.disp{font-family:'Fraunces',Georgia,serif;font-weight:700;line-height:1.2}
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace}
+.wrap{width:100%;max-width:780px;margin:0 auto;padding:0 18px}
+
+/* ---------- top ---------- */
+.topbar{
+  position:sticky;top:0;z-index:60;width:100%;max-width:100vw;overflow:hidden;
+  background:rgba(20,17,13,.94);backdrop-filter:blur(9px);
+  border-bottom:1px solid var(--line);
+}
+.topbar .wrap{display:flex;align-items:center;gap:12px;height:74px}
+.brand{font-family:'Fraunces',serif;font-weight:700;font-size:1.18rem;color:var(--gold-hi);letter-spacing:-.01em;white-space:nowrap}
+.brand span{color:var(--ink-faint);font-family:'Spline Sans',sans-serif;font-weight:400;font-size:.72rem;display:block;line-height:1.3;letter-spacing:.02em}
+.topbar .price{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:.92rem;color:var(--gold);
+  border:1px solid var(--line);border-radius:999px;padding:5px 14px;white-space:nowrap;background:var(--bg2)}
+
+/* ---------- hero ---------- */
+.hero{padding:44px 0 30px}
+.hero h1{font-size:2.5rem;letter-spacing:-.02em;color:var(--ink)}
+.hero h1 em{font-style:normal;color:var(--gold-hi)}
+.hero .sub{margin-top:14px;font-size:1.06rem;color:var(--ink-dim);max-width:34em}
+
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:26px}
+.fact{background:var(--bg2);border:1px solid var(--line);border-radius:var(--rs);padding:13px 15px}
+.fact b{display:block;font-family:'JetBrains Mono',monospace;font-size:1.02rem;color:var(--gold-hi);font-weight:500}
+.fact i{font-style:normal;font-size:.82rem;color:var(--ink-faint);display:block;line-height:1.45;margin-top:2px}
+
+/* ---------- step rail ---------- */
+.rail{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;
+  margin:30px 0 8px;
+}
+.rail button{
+  font:inherit;font-size:.86rem;color:var(--ink-dim);background:var(--bg2);
+  border:1px solid var(--line);border-radius:999px;padding:11px 8px;cursor:pointer;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  transition:background .13s,color .13s,border-color .13s;
+}
+.rail button:hover:not(:disabled){color:var(--ink);border-color:var(--gold-dp)}
+.rail button:active:not(:disabled){transform:scale(.98)}
+.rail button[aria-current="true"]{background:var(--gold);border-color:var(--gold);color:#1a1409;font-weight:600}
+.rail button:disabled{opacity:.42;cursor:not-allowed}
+
+/* ---------- panels ---------- */
+.view{display:none;padding:20px 0 8px}
+.view.active{display:block}
+.view h2{font-size:1.72rem;letter-spacing:-.015em}
+.view .lead{color:var(--ink-dim);margin-top:9px;font-size:1rem}
+
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:20px;margin-top:20px}
+.card.tight{padding:15px 18px}
+
+.drop{
+  border:2px dashed var(--line);border-radius:var(--r);background:var(--bg2);
+  padding:44px 20px;text-align:center;cursor:pointer;margin-top:22px;
+  transition:border-color .15s,background .15s;
+}
+.drop:hover,.drop.hot{border-color:var(--gold);background:var(--bg3)}
+.drop .big{font-family:'Fraunces',serif;font-weight:700;font-size:1.3rem;color:var(--gold-hi)}
+.drop .small{color:var(--ink-faint);font-size:.86rem;margin-top:7px}
+
+.stage{
+  position:relative;width:100%;max-width:400px;margin:22px auto 0;
+  aspect-ratio:1/1;border-radius:var(--r);overflow:hidden;
+  background:#0d0b08;border:1px solid var(--line);touch-action:none;cursor:grab;
+}
+.stage.grabbing{cursor:grabbing}
+.stage canvas{display:block;width:100%;height:100%}
+.stage .guides{position:absolute;inset:0}
+.guideline{
+  position:absolute;left:0;right:0;height:30px;margin-top:-15px;
+  cursor:ns-resize;touch-action:none;
+}
+.guideline::before{
+  content:'';position:absolute;left:0;right:0;top:14px;height:0;
+  border-top:2px dashed rgba(231,177,115,.9);
+}
+.guideline.soft::before{border-top-style:dotted;border-top-color:rgba(231,177,115,.5)}
+.guideline b{
+  position:absolute;right:6px;top:0;font:500 .62rem/1 'JetBrains Mono',monospace;
+  color:#1a1409;background:rgba(231,177,115,.94);padding:5px 8px;border-radius:5px;font-style:normal;
+  white-space:nowrap;pointer-events:none;
+}
+.guideline.soft b{background:rgba(231,177,115,.66)}
+.guideline.dragging b{background:var(--gold-hi)}
+.ovalmask{position:absolute;left:50%;transform:translateX(-50%);border:2px solid rgba(231,177,115,.3);border-radius:50%;pointer-events:none}
+
+.zoomrow{display:flex;align-items:center;gap:12px;margin-top:16px}
+.zoomrow input[type=range]{flex:1;accent-color:var(--gold);height:26px}
+.zbtn{
+  font:inherit;font-size:1.25rem;line-height:1;width:46px;height:46px;flex:none;
+  background:var(--bg3);border:1px solid var(--line);border-radius:var(--rs);
+  color:var(--gold-hi);cursor:pointer;
+}
+.zbtn:active{transform:scale(.96)}
+
+.checks{display:grid;gap:9px;margin-top:18px}
+.chk{
+  display:flex;align-items:flex-start;gap:11px;background:var(--bg3);
+  border:1px solid var(--line);border-radius:var(--rs);padding:12px 14px;font-size:.9rem;
+}
+.chk .dot{flex:none;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;
+  font-size:.78rem;font-weight:700;color:#14110d;margin-top:2px}
+.chk.ok .dot{background:var(--pass)}
+.chk.no .dot{background:var(--fail)}
+.chk.wait .dot{background:var(--ink-faint)}
+.chk .t{flex:1}
+.chk .t b{display:block;color:var(--ink);font-weight:600}
+.chk .t i{font-style:normal;color:var(--ink-faint);font-size:.83rem;display:block;line-height:1.5}
+.chk.no .t i{color:var(--fail)}
+
+.btn{
+  font:inherit;font-weight:600;font-size:1rem;border-radius:999px;cursor:pointer;
+  padding:15px 28px;border:1px solid transparent;transition:filter .13s,background .13s;
+}
+.btn:active{transform:scale(.98)}
+.btn.primary{background:var(--gold);color:#1a1409}
+.btn.primary:hover:not(:disabled){background:var(--gold-hi)}
+.btn.ghost{background:transparent;color:var(--gold-hi);border-color:var(--line)}
+.btn.ghost:hover:not(:disabled){border-color:var(--gold-dp)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btnrow{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.btnrow .btn{flex:1 1 190px;text-align:center}
+
+.warnlist{margin-top:20px;display:grid;gap:0}
+.warnlist div{
+  padding:13px 0;border-bottom:1px solid var(--line);font-size:.94rem;color:var(--ink-dim);
+  display:flex;gap:12px;align-items:baseline;
+}
+.warnlist div:last-child{border-bottom:0}
+.warnlist div b{color:var(--ink);font-weight:600;flex:none;min-width:8.6em}
+
+/* pay */
+.payslab{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center;margin-top:6px}
+.qrbox{background:#f4ece0;padding:11px;border-radius:var(--rs);width:174px;height:174px;flex:none}
+.qrbox canvas{display:block;width:100%;height:100%;image-rendering:pixelated}
+.paylines{min-width:0}
+.payline{margin-bottom:14px}
+.payline b{display:block;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint)}
+.payline .v{font-family:'JetBrains Mono',monospace;font-size:.94rem;color:var(--gold-hi);word-break:break-all;line-height:1.5}
+.payline .v.big{font-size:1.5rem;color:var(--ink)}
+.copybtn{
+  font:inherit;font-size:.78rem;background:var(--bg3);color:var(--gold-hi);
+  border:1px solid var(--line);border-radius:8px;padding:5px 11px;cursor:pointer;margin-top:6px;
+}
+.copybtn:active{transform:scale(.97)}
+
+.field{margin-top:18px}
+.field label{display:block;font-size:.86rem;color:var(--ink-dim);margin-bottom:8px}
+.field input{
+  width:100%;font:inherit;font-family:'JetBrains Mono',monospace;font-size:.9rem;
+  background:var(--bg3);border:1px solid var(--line);border-radius:var(--rs);
+  padding:14px 15px;color:var(--ink);
+}
+.field input:focus{outline:2px solid var(--gold-dp);outline-offset:1px}
+
+.note{
+  margin-top:18px;padding:14px 16px;border-radius:var(--rs);font-size:.88rem;line-height:1.6;
+  background:var(--bg3);border:1px solid var(--line);color:var(--ink-dim);
+}
+.note.bad{border-color:#5c3a33;color:var(--fail);background:#241713}
+.note.good{border-color:#3e5238;color:var(--pass);background:#161d14}
+.note b{color:inherit}
+
+.result{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center;margin-top:6px}
+.result img{width:190px;height:190px;border-radius:var(--rs);border:1px solid var(--line);display:block}
+
+/* faq */
+.faq{margin-top:16px}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{
+  cursor:pointer;padding:17px 0;font-weight:600;font-size:1rem;list-style:none;
+  display:flex;justify-content:space-between;gap:14px;align-items:center;color:var(--ink);
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';color:var(--gold);font-family:'JetBrains Mono',monospace;font-size:1.2rem;flex:none}
+.faq details[open] summary::after{content:'-'}
+.faq p{padding:0 0 18px;color:var(--ink-dim);font-size:.94rem;max-width:44em}
+
+footer{border-top:1px solid var(--line);margin-top:56px;padding:30px 0 60px;color:var(--ink-faint);font-size:.84rem}
+footer p{max-width:46em;margin-bottom:11px;line-height:1.65}
+footer a{color:var(--gold-dp)}
+.hidden{display:none !important}
+.srOnly{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+@media (max-width:640px){
+  html{font-size:18px}
+  .hero h1{font-size:2rem}
+  .payslab,.result{grid-template-columns:1fr}
+  .qrbox{margin:0 auto}
+  .result img{margin:0 auto}
+  .warnlist div{flex-direction:column;gap:2px}
+  .warnlist div b{min-width:0}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand">visa2x2<span>US visa photo, DS-160 ready</span></div>
+    <div class="price" id="topPrice">4 USDC</div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <h1>A US visa photo the <em>DS-160 form will take</em>.</h1>
+    <p class="sub">Upload a photo of yourself against a plain white wall. It gets cropped to the exact US Department of State size on this page, on your own device. Pay, download one JPEG, done. No account, nothing to install.</p>
+    <div class="facts">
+      <div class="fact"><b>600 x 600 px</b><i>Exactly 2 x 2 inches at 300 dpi</i></div>
+      <div class="fact"><b>Under 240 KB</b><i>The DS-160 upload limit</i></div>
+      <div class="fact"><b>Never uploaded</b><i>Cropping runs in your browser</i></div>
+      <div class="fact"><b>4 USDC</b><i>Refund if rejected on size</i></div>
+    </div>
+  </section>
+
+  <nav class="rail" id="rail" aria-label="Steps">
+    <button data-go="0" aria-current="true">1. Your photo</button>
+    <button data-go="1" disabled>2. Line it up</button>
+    <button data-go="2" disabled>3. Check</button>
+    <button data-go="3" disabled>4. Pay</button>
+    <button data-go="4" disabled>5. Download</button>
+  </nav>
+
+  <!-- ============ STEP 1 ============ -->
+  <section class="view active" id="v0">
+    <h2>Start with a photo you already have</h2>
+    <p class="lead">A phone selfie works. What matters is the wall behind you, not the camera.</p>
+
+    <div class="drop" id="drop" tabindex="0" role="button" aria-label="Choose a photo">
+      <div class="big">Choose a photo</div>
+      <div class="small">Take one now or pick from your gallery. It stays on this device.</div>
+    </div>
+    <input type="file" id="file" accept="image/*" class="srOnly">
+
+    <div class="warnlist">
+      <div><b>Background</b><span>A plain white or off-white wall. Nothing behind you, no shadow on the wall. This page will not paint a fake wall in for you, because a digitally replaced background is refused.</span></div>
+      <div><b>Your face</b><span>Look straight at the camera, neutral expression, mouth closed, both eyes open.</span></div>
+      <div><b>Glasses</b><span>Take them off. Glasses have not been allowed in US visa photos since 2016.</span></div>
+      <div><b>Head covering</b><span>None, unless you wear it daily for religious reasons, and then your full face still has to show.</span></div>
+      <div><b>How recent</b><span>Taken within the last 6 months, and it must look like you do now.</span></div>
+      <div><b>Light</b><span>Face a window. Even light, no hard shadow across half your face.</span></div>
+    </div>
+
+    <div class="note">This page changes nothing about your face. It crops, resizes and compresses. There is no beautifying, no filter, no face swap and no generated background, because since January 2026 the US State Department refuses photos that have been altered that way.</div>
+  </section>
+
+  <!-- ============ STEP 2 ============ -->
+  <section class="view" id="v1">
+    <h2>Put the three lines on your face</h2>
+    <p class="lead">Top line on the top of your hair, middle line on your eyes, bottom line on your chin. Drag the picture to move it, use the slider to resize. Both readings under the square have to be green.</p>
+
+    <div class="stage" id="stage">
+      <canvas id="preview" width="800" height="800"></canvas>
+      <div class="guides" id="guides">
+        <div class="ovalmask" id="oval"></div>
+        <div class="guideline" id="gTop" data-g="top"><b>top of head</b></div>
+        <div class="guideline soft" id="gEye" data-g="eye"><b>eyes</b></div>
+        <div class="guideline" id="gChin" data-g="chin"><b>chin</b></div>
+      </div>
+    </div>
+
+    <div class="zoomrow">
+      <button class="zbtn" id="zOut" aria-label="Smaller">-</button>
+      <input type="range" id="zoom" min="0" max="1000" value="500" aria-label="Resize">
+      <button class="zbtn" id="zIn" aria-label="Bigger">+</button>
+    </div>
+
+    <div class="checks" id="liveChecks"></div>
+
+    <div class="note" id="autoNote">Lining up automatically.</div>
+
+    <div class="btnrow">
+      <button class="btn ghost" id="reFit">Line it up again</button>
+      <button class="btn primary" id="toCheck">Check this photo</button>
+    </div>
+  </section>
+
+  <!-- ============ STEP 3 ============ -->
+  <section class="view" id="v2">
+    <h2>What came out</h2>
+    <p class="lead">Size, file size and background are read off the finished pixels. Head and eye height are read off the lines you set. Every one of them has to pass before you can pay.</p>
+
+    <div class="card">
+      <div class="result">
+        <img id="checkImg" alt="Your cropped 2 by 2 photo">
+        <div class="checks" id="checks"></div>
+      </div>
+    </div>
+
+    <div class="note" id="checkNote"></div>
+
+    <div class="btnrow">
+      <button class="btn ghost" id="backToFit">Change the crop</button>
+      <button class="btn ghost" id="sampleDl">Download a watermarked sample</button>
+      <button class="btn primary" id="toPay">Pay and get the real file</button>
+    </div>
+  </section>
+
+  <!-- ============ STEP 4 ============ -->
+  <section class="view" id="v3">
+    <h2>Pay <span id="payAmtTitle">4 USDC</span></h2>
+    <p class="lead" id="payLead">Send it on the Base network to the address below, then paste the transaction hash. Nothing else is asked of you.</p>
+
+    <div class="card">
+      <div class="payslab">
+        <div class="qrbox"><canvas id="qr" width="174" height="174"></canvas></div>
+        <div class="paylines">
+          <div class="payline"><b>Amount</b><div class="v big mono" id="payAmt">4.00 USDC</div></div>
+          <div class="payline"><b>Network</b><div class="v" id="payNet">Base</div></div>
+          <div class="payline"><b>Send to</b><div class="v mono" id="payTo"></div>
+            <button class="copybtn" id="copyAddr">Copy address</button></div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="txh">Transaction hash</label>
+        <input id="txh" placeholder="0x..." autocomplete="off" spellcheck="false" inputmode="text">
+      </div>
+
+      <div class="btnrow">
+        <button class="btn ghost" id="backToCheck">Back</button>
+        <button class="btn primary" id="verify">Check the payment</button>
+      </div>
+      <div class="note hidden" id="payNote"></div>
+    </div>
+
+    <div class="note">Send the exact token on the exact network shown above. A transfer sent on a different network cannot be recovered by anyone, including us.</div>
+  </section>
+
+  <!-- ============ STEP 5 ============ -->
+  <section class="view" id="v4">
+    <h2>Paid. Here is your file.</h2>
+    <p class="lead">Download it, then upload it to DS-160. Once you close this page the photo is gone from memory.</p>
+
+    <div class="card">
+      <div class="result">
+        <img id="finalImg" alt="Your finished 2 by 2 visa photo">
+        <div>
+          <div class="checks" id="finalStats"></div>
+          <div class="btnrow">
+            <button class="btn primary" id="dlFinal">Download the JPEG</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="note good">If a consulate or the DS-160 portal turns this file down because of its size, its dimensions or its file size, email <a href="mailto:benben@at-creative.com" style="color:inherit">benben@at-creative.com</a> with the rejection message and the 4 USDC goes back to the address you sent it from. That does not cover a rejection for a busy background, glasses, an expression or lighting, because those are in the photo you took.</div>
+  </section>
+
+  <section class="faq">
+    <h2 style="font-size:1.4rem;margin-top:52px">Questions people actually ask</h2>
+    <details><summary>Does my photo get uploaded anywhere?</summary>
+      <p>No. The cropping, the resizing and the JPEG compression all run inside this page on your own device. There is no server that receives the picture, no gallery, no account and no backup. When you close the tab it is gone. The only thing that ever leaves your device is the payment, and that goes to the blockchain, not to us.</p></details>
+    <details><summary>Why can I not pay with a card?</summary>
+      <p>Card processing needs a merchant account this site does not have yet. Today it takes one stablecoin on one network, which keeps the price at 4 instead of 4 plus fees. If you have no wallet, this is not the right site for you and you should not waste your time on it.</p></details>
+    <details><summary>Can you fix the background for me?</summary>
+      <p>No, and that is deliberate. Since January 2026 the US State Department rejects photos where the background has been digitally replaced. A tool that paints a white wall behind you is selling you a rejection. Stand in front of a real plain wall instead.</p></details>
+    <details><summary>Will it retouch my face?</summary>
+      <p>Never. No smoothing, no whitening, no eye enlarging, no generated face. The photo you upload is the photo you get back, only cropped, resized and compressed.</p></details>
+    <details><summary>Does this work for a Schengen or a passport photo?</summary>
+      <p>Not yet. Right now this makes one thing: the US 2 x 2 at 600 x 600 pixels.</p></details>
+    <details><summary>My DS-160 says the photo failed. What now?</summary>
+      <p>Read what it says. If it names the dimensions, the aspect ratio or the file size, that is on this tool and you get your 4 USDC back. If it names your expression, your glasses, the lighting or the background, retake the photo and run it through again at no extra cost within 30 days, using the same transaction hash.</p></details>
+  </section>
+
+  <footer>
+    <p>This site is not affiliated with, endorsed by or connected to the United States Department of State, any US embassy or consulate, or any government agency. It is a photo cropping tool.</p>
+    <p>Privacy: photographs are processed in your browser and are never transmitted, stored, sold or used to train anything. No cookies are set. No analytics run on this page.</p>
+    <p>Contact <a href="mailto:benben@at-creative.com">benben@at-creative.com</a></p>
+  </footer>
+</main>
+
+<script>
+"use strict";
+
+/* ==================================================================
+   CONFIG - the only block that changes when the money side changes
+   ================================================================== */
+var CFG = {
+  price: 4,                       // amount the buyer pays
+  payTo: "0x50f3e89C18e3967426bfFaf731E43260E7457EB7",
+  contact: "benben@at-creative.com",
+  // The network shown on the page. It MUST be a network the receiving
+  // wallet actually credits. Change these four lines and nothing else.
+  chain: {
+    name: "Base",
+    id: 8453,
+    rpc: ["https://mainnet.base.org", "https://base.llamarpc.com"],
+    explorer: "https://basescan.org/tx/"
+  },
+  token: {
+    symbol: "USDC",
+    address: "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+    decimals: 6
+  },
+  minConfirmations: 1
+};
+
+/* Other networks are only read so a buyer who sent on the wrong one
+   gets told exactly what happened instead of a blank "not found". */
+var OTHER_CHAINS = [
+  { name:"Ethereum", id:1, rpc:["https://eth.llamarpc.com","https://rpc.ankr.com/eth"] },
+  { name:"Polygon",  id:137, rpc:["https://polygon-rpc.com"] },
+  { name:"Arbitrum", id:42161, rpc:["https://arb1.arbitrum.io/rpc"] },
+  { name:"Optimism", id:10, rpc:["https://mainnet.optimism.io"] },
+  { name:"BNB Chain",id:56, rpc:["https://bsc-dataseed.binance.org"] }
+];
+
+/* US Department of State 2x2 rules, as numbers */
+var SPEC = {
+  size: 600,
+  maxBytes: 240 * 1024,
+  headMin: 0.50, headMax: 0.69,       // chin to top of head, share of frame height
+  eyeMinFromBottom: 0.56, eyeMaxFromBottom: 0.69,
+  guideTop: 0.15, guideEye: 0.41, guideChin: 0.75   // starting positions -> head 60%, eyes 59% up
+};
+
+/* Where the three lines sit right now, as a share of the frame height.
+   These are what the head-height and eye-height checks are computed from,
+   so they are the buyer's own reading of their own face. */
+var guides = { top: SPEC.guideTop, eye: SPEC.guideEye, chin: SPEC.guideChin };
+
+/* ==================================================================
+   tiny helpers
+   ================================================================== */
+function $(id){ return document.getElementById(id); }
+function fmtKB(b){ return (b/1024).toFixed(0) + " KB"; }
+function store(k, v){
+  try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); }
+  catch(e){ return null; }
+}
+
+/* ==================================================================
+   STEP NAVIGATION
+   ================================================================== */
+var step = 0, maxStep = 0;
+var railBtns = Array.prototype.slice.call(document.querySelectorAll("#rail button"));
+
+function go(n){
+  if (n > maxStep) return;
+  step = n;
+  for (var i = 0; i < 5; i++){
+    var v = $("v" + i);
+    if (v) v.classList.toggle("active", i === n);
+    railBtns[i].setAttribute("aria-current", i === n ? "true" : "false");
+  }
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+function unlock(n){
+  if (n > maxStep) maxStep = n;
+  for (var i = 0; i <= maxStep && i < 5; i++) railBtns[i].disabled = false;
+}
+railBtns.forEach(function(b){
+  b.addEventListener("click", function(){ go(parseInt(b.dataset.go, 10)); });
+});
+
+/* ==================================================================
+   STEP 1 - loading the photo
+   ================================================================== */
+var srcImg = null, srcW = 0, srcH = 0;
+var drop = $("drop"), fileInput = $("file");
+
+drop.addEventListener("click", function(){ fileInput.click(); });
+drop.addEventListener("keydown", function(e){
+  if (e.key === "Enter" || e.key === " ") { e.preventDefault(); fileInput.click(); }
+});
+["dragenter","dragover"].forEach(function(t){
+  drop.addEventListener(t, function(e){ e.preventDefault(); drop.classList.add("hot"); });
+});
+["dragleave","drop"].forEach(function(t){
+  drop.addEventListener(t, function(e){ e.preventDefault(); drop.classList.remove("hot"); });
+});
+drop.addEventListener("drop", function(e){
+  if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]) loadFile(e.dataTransfer.files[0]);
+});
+fileInput.addEventListener("change", function(){
+  if (fileInput.files && fileInput.files[0]) loadFile(fileInput.files[0]);
+});
+
+function loadFile(f){
+  if (!f.type || f.type.indexOf("image/") !== 0){
+    alert("That is not an image file.");
+    return;
+  }
+  var done = function(bmp, w, h){
+    srcImg = bmp; srcW = w; srcH = h;
+    unlock(1); go(1);
+    autoFit();
+    draw();
+  };
+  if (window.createImageBitmap){
+    createImageBitmap(f, { imageOrientation: "from-image" }).then(function(bmp){
+      done(bmp, bmp.width, bmp.height);
+    }).catch(function(){ legacyLoad(f, done); });
+  } else {
+    legacyLoad(f, done);
+  }
+}
+function legacyLoad(f, done){
+  var url = URL.createObjectURL(f);
+  var im = new Image();
+  im.onload = function(){ done(im, im.naturalWidth, im.naturalHeight); URL.revokeObjectURL(url); };
+  im.onerror = function(){ alert("That image could not be opened."); URL.revokeObjectURL(url); };
+  im.src = url;
+}
+
+/* ==================================================================
+   STEP 2 - the crop box
+   crop = a square (cx, cy, side) in source-image pixels
+   ================================================================== */
+var crop = { x: 0, y: 0, s: 100 };
+var stage = $("stage"), pv = $("preview"), pctx = pv.getContext("2d");
+var zoomEl = $("zoom");
+
+/* The crop square never leaves the photo. Nothing outside the picture may
+   end up in the file, otherwise blank canvas would pass as a white wall. */
+function clampCrop(){
+  var maxS = Math.min(srcW, srcH);
+  crop.s = Math.max(Math.min(40, maxS), Math.min(maxS, crop.s));
+  crop.x = Math.max(0, Math.min(srcW - crop.s, crop.x));
+  crop.y = Math.max(0, Math.min(srcH - crop.s, crop.y));
+}
+
+function draw(){
+  if (!srcImg) return;
+  clampCrop();
+  var N = pv.width;
+  pctx.fillStyle = "#0d0b08";
+  pctx.fillRect(0, 0, N, N);
+  pctx.imageSmoothingEnabled = true;
+  pctx.imageSmoothingQuality = "high";
+  pctx.drawImage(srcImg, crop.x, crop.y, crop.s, crop.s, 0, 0, N, N);
+
+  var sl = zoomSliderFromCrop();
+  if (Math.abs(parseInt(zoomEl.value, 10) - sl) > 1) zoomEl.value = String(sl);
+  placeGuides();
+  paintLive();
+}
+
+function placeGuides(){
+  $("gTop").style.top  = (guides.top  * 100) + "%";
+  $("gEye").style.top  = (guides.eye  * 100) + "%";
+  $("gChin").style.top = (guides.chin * 100) + "%";
+  var ov = $("oval");
+  var h = Math.max(0.02, guides.chin - guides.top);
+  ov.style.top = (guides.top * 100) + "%";
+  ov.style.height = (h * 100) + "%";
+  ov.style.width = (h * 0.74 * 100) + "%";
+}
+
+function zoomSliderFromCrop(){
+  var lo = zoomLo(), hi = zoomHi();
+  var t = Math.log(crop.s / lo) / Math.log(hi / lo);
+  return Math.round(Math.max(0, Math.min(1, 1 - t)) * 1000);
+}
+function zoomLo(){ return Math.max(40, Math.min(srcW, srcH) * 0.16); }
+function zoomHi(){ return Math.max(zoomLo() * 1.01, Math.min(srcW, srcH)); }
+function cropFromZoomSlider(v){
+  var lo = zoomLo(), hi = zoomHi();
+  return lo * Math.pow(hi / lo, 1 - (v / 1000));
+}
+
+/* ---- dragging the three lines ---- */
+(function guideDrag(){
+  var active = null;
+  function frac(clientY){
+    var box = stage.getBoundingClientRect();
+    return Math.max(0, Math.min(1, (clientY - box.top) / box.height));
+  }
+  ["gTop","gEye","gChin"].forEach(function(id){
+    var el = $(id);
+    el.addEventListener("pointerdown", function(e){
+      e.preventDefault(); e.stopPropagation();
+      active = el.dataset.g;
+      el.classList.add("dragging");
+      el.setPointerCapture(e.pointerId);
+    });
+    el.addEventListener("pointermove", function(e){
+      if (active !== el.dataset.g) return;
+      e.preventDefault(); e.stopPropagation();
+      var f = frac(e.clientY);
+      if (active === "top")  guides.top  = Math.min(f, guides.chin - 0.06);
+      if (active === "chin") guides.chin = Math.max(f, guides.top + 0.06);
+      if (active === "eye")  guides.eye  = f;
+      guides.eye = Math.max(guides.top + 0.01, Math.min(guides.chin - 0.01, guides.eye));
+      placeGuides(); paintLive();
+    });
+    ["pointerup","pointercancel"].forEach(function(t){
+      el.addEventListener(t, function(){ active = null; el.classList.remove("dragging"); });
+    });
+  });
+})();
+
+/* the two official geometry rules, computed from where the lines are */
+function geometry(){
+  var head = guides.chin - guides.top;
+  var eyeFromBottom = 1 - guides.eye;
+  return {
+    head: head,
+    headOK: head >= SPEC.headMin && head <= SPEC.headMax,
+    eye: eyeFromBottom,
+    eyeOK: eyeFromBottom >= SPEC.eyeMinFromBottom && eyeFromBottom <= SPEC.eyeMaxFromBottom
+  };
+}
+
+function paintLive(){
+  var g = geometry(), box = $("liveChecks");
+  if (!box) return;
+  var rows = [
+    { ok: g.headOK,
+      t: "Head " + (g.head * 100).toFixed(0) + " percent of the frame",
+      i: g.headOK ? "Inside the 50 to 69 percent the State Department allows."
+                  : "Must be 50 to 69 percent. " + (g.head < SPEC.headMin
+                      ? "Make the picture bigger, or move the lines further apart onto your real hairline and chin."
+                      : "Make the picture smaller so your head takes up less of the square.") },
+    { ok: g.eyeOK,
+      t: "Eyes " + (g.eye * 100).toFixed(0) + " percent up from the bottom",
+      i: g.eyeOK ? "Inside the 56 to 69 percent the State Department allows."
+                 : "Must be 56 to 69 percent. Drag the picture up or down, or move the eye line onto your eyes." }
+  ];
+  box.innerHTML = "";
+  rows.forEach(function(r){
+    var el = document.createElement("div");
+    el.className = "chk " + (r.ok ? "ok" : "no");
+    el.innerHTML = '<div class="dot">' + (r.ok ? "&#10003;" : "!") + '</div><div class="t"><b></b><i></i></div>';
+    el.querySelector("b").textContent = r.t;
+    el.querySelector("i").textContent = r.i;
+    box.appendChild(el);
+  });
+}
+
+zoomEl.addEventListener("input", function(){
+  if (!srcImg) return;
+  var cxOld = crop.x + crop.s / 2, cyOld = crop.y + crop.s / 2;
+  crop.s = cropFromZoomSlider(parseInt(zoomEl.value, 10));
+  crop.x = cxOld - crop.s / 2; crop.y = cyOld - crop.s / 2;
+  draw();
+});
+function nudgeZoom(mult){
+  if (!srcImg) return;
+  var cxOld = crop.x + crop.s / 2, cyOld = crop.y + crop.s / 2;
+  crop.s *= mult;
+  crop.x = cxOld - crop.s / 2; crop.y = cyOld - crop.s / 2;
+  draw();
+}
+$("zIn").addEventListener("click", function(){ nudgeZoom(1 / 1.12); });
+$("zOut").addEventListener("click", function(){ nudgeZoom(1.12); });
+
+/* drag + pinch */
+var pointers = new Map(), lastMid = null, lastDist = 0;
+stage.addEventListener("pointerdown", function(e){
+  if (!srcImg) return;
+  stage.setPointerCapture(e.pointerId);
+  pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+  stage.classList.add("grabbing");
+  lastMid = null; lastDist = 0;
+});
+stage.addEventListener("pointermove", function(e){
+  if (!srcImg || !pointers.has(e.pointerId)) return;
+  pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+  var pts = Array.from(pointers.values());
+  var box = stage.getBoundingClientRect();
+  var perPx = crop.s / box.width;
+
+  if (pts.length === 1){
+    var p = pts[0];
+    if (lastMid){
+      crop.x -= (p.x - lastMid.x) * perPx;
+      crop.y -= (p.y - lastMid.y) * perPx;
+    }
+    lastMid = { x: p.x, y: p.y };
+  } else {
+    var mx = (pts[0].x + pts[1].x) / 2, my = (pts[0].y + pts[1].y) / 2;
+    var d = Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y);
+    if (lastMid && lastDist > 0){
+      crop.x -= (mx - lastMid.x) * perPx;
+      crop.y -= (my - lastMid.y) * perPx;
+      var f = lastDist / d;
+      var cxOld = crop.x + crop.s / 2, cyOld = crop.y + crop.s / 2;
+      crop.s *= f;
+      crop.x = cxOld - crop.s / 2; crop.y = cyOld - crop.s / 2;
+    }
+    lastMid = { x: mx, y: my }; lastDist = d;
+  }
+  draw();
+});
+["pointerup","pointercancel","pointerleave"].forEach(function(t){
+  stage.addEventListener(t, function(e){
+    pointers.delete(e.pointerId);
+    if (pointers.size === 0){ lastMid = null; lastDist = 0; stage.classList.remove("grabbing"); }
+    else { lastMid = null; }
+  });
+});
+stage.addEventListener("wheel", function(e){
+  if (!srcImg) return;
+  e.preventDefault();
+  nudgeZoom(e.deltaY > 0 ? 1.08 : 1 / 1.08);
+}, { passive: false });
+
+/* ==================================================================
+   AUTO FIT - measured from the silhouette against a plain background
+   ================================================================== */
+function autoFit(){
+  var note = $("autoNote");
+  var m = measureSubject();
+
+  if (!m){
+    crop.s = Math.min(srcW, srcH);
+    crop.x = (srcW - crop.s) / 2;
+    crop.y = 0;
+    guides.top = SPEC.guideTop; guides.eye = SPEC.guideEye; guides.chin = SPEC.guideChin;
+    clampCrop();
+    note.className = "note";
+    note.textContent = "Your head could not be found automatically, which usually means the wall behind you is not plain. Drag the three lines onto the top of your hair, your eyes and your chin, and resize until both readings below turn green.";
+    return;
+  }
+
+  // a head is about 1.4 times as tall as it is wide, hair included
+  var headH = m.headW * 1.4;
+  var frame = headH / (SPEC.guideChin - SPEC.guideTop);
+
+  crop.s = frame;
+  crop.y = m.top - SPEC.guideTop * frame;
+  crop.x = m.centerX - frame / 2;
+  clampCrop();
+
+  // put the lines where the face actually is, after any clamping
+  var f = crop.s;
+  guides.top  = clamp01((m.top - crop.y) / f);
+  guides.chin = clamp01((m.top + headH - crop.y) / f);
+  guides.eye  = clamp01((m.top + headH * 0.43 - crop.y) / f);
+  if (guides.chin - guides.top < 0.06) guides.chin = Math.min(1, guides.top + 0.06);
+  guides.eye = Math.max(guides.top + 0.01, Math.min(guides.chin - 0.01, guides.eye));
+
+  var g = geometry();
+  note.className = "note";
+  note.textContent = (g.headOK && g.eyeOK)
+    ? "Lined up from the outline of your head, and both measurements pass. Look at the three lines: if they are not on your hair, your eyes and your chin, drag them there."
+    : "Lined up from the outline of your head, but it does not pass yet. Drag the lines onto the top of your hair, your eyes and your chin, then resize until both readings turn green.";
+}
+function clamp01(v){ return Math.max(0, Math.min(1, v)); }
+$("reFit").addEventListener("click", function(){ autoFit(); draw(); });
+
+/* Reads the actual pixels: samples the background from the top corners,
+   walks down the rows and reports where the subject starts and how wide
+   the head is. Returns null when the background is too busy to trust. */
+function measureSubject(){
+  var W = 240;
+  var H = Math.max(1, Math.round(srcH * (W / srcW)));
+  var c = document.createElement("canvas");
+  c.width = W; c.height = H;
+  var g = c.getContext("2d", { willReadFrequently: true });
+  g.drawImage(srcImg, 0, 0, W, H);
+  var d;
+  try { d = g.getImageData(0, 0, W, H).data; } catch(e){ return null; }
+
+  // background reference = median of the two top corner blocks
+  var sample = [];
+  var bw = Math.max(4, Math.round(W * 0.10)), bh = Math.max(4, Math.round(H * 0.07));
+  for (var y = 0; y < bh; y++){
+    for (var x = 0; x < bw; x++){ sample.push(px(d, W, x, y)); sample.push(px(d, W, W - 1 - x, y)); }
+  }
+  var bg = medianRGB(sample);
+  if (bg === null) return null;
+
+  var spread = 0;
+  for (var i = 0; i < sample.length; i++) spread += dist(sample[i], bg);
+  spread /= sample.length;
+  if (spread > 26) return null;                 // corners disagree -> not a plain wall
+
+  var TH = Math.max(34, spread * 3.2);
+  var rowW = new Float32Array(H), rowL = new Int32Array(H), rowR = new Int32Array(H);
+  var top = -1;
+  for (var y2 = 0; y2 < H; y2++){
+    var l = -1, r = -1, n = 0;
+    for (var x2 = 0; x2 < W; x2++){
+      if (dist(px(d, W, x2, y2), bg) > TH){ n++; if (l < 0) l = x2; r = x2; }
+    }
+    rowW[y2] = n; rowL[y2] = l; rowR[y2] = r;
+    if (top < 0 && n > W * 0.035) top = y2;
+  }
+  if (top < 0 || top > H * 0.75) return null;
+
+  // smooth the width profile, then take the first local maximum: the temples
+  var sm = new Float32Array(H);
+  for (var y3 = 0; y3 < H; y3++){
+    var a = 0, k = 0;
+    for (var o = -3; o <= 3; o++){ var yy = y3 + o; if (yy >= 0 && yy < H){ a += rowW[yy]; k++; } }
+    sm[y3] = a / k;
+  }
+  var templeRow = -1, headW = 0;
+  var limit = Math.min(H - 2, top + Math.round(H * 0.55));
+  for (var y4 = top + 3; y4 < limit; y4++){
+    if (sm[y4] >= sm[y4 - 1] && sm[y4] > sm[y4 + 1] && sm[y4] > W * 0.06){
+      templeRow = y4; headW = sm[y4]; break;
+    }
+  }
+  if (templeRow < 0){
+    var probe = Math.min(H - 1, top + Math.round(H * 0.12));
+    headW = sm[probe]; templeRow = probe;
+  }
+  if (!(headW > 0)) return null;
+
+  var cxRow = Math.min(H - 1, templeRow);
+  var centerX = (rowL[cxRow] >= 0 ? (rowL[cxRow] + rowR[cxRow]) / 2 : W / 2);
+
+  var k2 = srcW / W;                              // back to source pixels
+  return { top: top * k2, headW: headW * k2, templeRow: templeRow * k2, centerX: centerX * k2 };
+}
+function px(d, W, x, y){ var i = (y * W + x) * 4; return [d[i], d[i+1], d[i+2]]; }
+function dist(a, b){ return Math.abs(a[0]-b[0]) + Math.abs(a[1]-b[1]) + Math.abs(a[2]-b[2]); }
+function medianRGB(list){
+  if (!list.length) return null;
+  var out = [];
+  for (var ch = 0; ch < 3; ch++){
+    var arr = list.map(function(p){ return p[ch]; }).sort(function(a,b){ return a-b; });
+    out.push(arr[arr.length >> 1]);
+  }
+  return out;
+}
+
+/* ==================================================================
+   STEP 3 - render at 600x600, measure, encode
+   ================================================================== */
+var out = { blob: null, url: null, bytes: 0, bg: null, canvas: null };
+
+$("toCheck").addEventListener("click", function(){ runCheck(); });
+$("backToFit").addEventListener("click", function(){ go(1); draw(); });
+
+function renderFinal(){
+  var N = SPEC.size;
+  var c = document.createElement("canvas");
+  c.width = N; c.height = N;
+  var g = c.getContext("2d");
+  g.fillStyle = "#ffffff";
+  g.fillRect(0, 0, N, N);
+  g.imageSmoothingEnabled = true;
+  g.imageSmoothingQuality = "high";
+  g.drawImage(srcImg, crop.x, crop.y, crop.s, crop.s, 0, 0, N, N);
+  return c;
+}
+
+/* Encode to JPEG and walk the quality down until it is under the limit */
+function encodeUnder(canvas, limit){
+  return new Promise(function(resolve){
+    var qs = [0.94, 0.9, 0.85, 0.8, 0.72, 0.64, 0.55, 0.45, 0.35];
+    var i = 0;
+    function tryQ(){
+      canvas.toBlob(function(b){
+        if (!b){ resolve(null); return; }
+        if (b.size <= limit || i >= qs.length - 1){ resolve({ blob: b, q: qs[i] }); return; }
+        i++; tryQ();
+      }, "image/jpeg", qs[i]);
+    }
+    tryQ();
+  });
+}
+
+/* Background check on the finished crop. Only the top strip and the upper
+   part of the two side strips: lower down is shoulders and clothing, and
+   counting those would fail every correct photo. */
+function checkBackground(canvas){
+  var g = canvas.getContext("2d", { willReadFrequently: true });
+  var N = canvas.width, band = Math.round(N * 0.08), sideStop = Math.round(N * 0.55);
+  var d;
+  try { d = g.getImageData(0, 0, N, N).data; } catch(e){ return null; }
+  var pts = [];
+  for (var y = 0; y < N; y += 2){
+    for (var x = 0; x < N; x += 2){
+      var inTop  = y < band;
+      var inSide = y < sideStop && (x < band || x >= N - band);
+      if (inTop || inSide) pts.push(px(d, N, x, y));
+    }
+  }
+  if (!pts.length) return null;
+  var med = medianRGB(pts);
+  var luma = 0.2126 * med[0] + 0.7152 * med[1] + 0.0722 * med[2];
+  var off = 0;
+  for (var i = 0; i < pts.length; i++) if (dist(pts[i], med) > 34) off++;
+  return { median: med, luma: luma, offShare: off / pts.length };
+}
+
+function runCheck(){
+  var canvas = renderFinal();
+  out.canvas = canvas;
+  out.bg = checkBackground(canvas);
+  out.geom = geometry();
+  return encodeUnder(canvas, SPEC.maxBytes).then(function(r){
+    if (!r){ alert("This browser could not make a JPEG."); return false; }
+    if (out.url) URL.revokeObjectURL(out.url);
+    out.blob = r.blob; out.bytes = r.blob.size; out.quality = r.q;
+    out.url = URL.createObjectURL(r.blob);
+    $("checkImg").src = out.url;
+    paintChecks();
+    unlock(2); go(2);
+    return true;
+  });
+}
+
+function paintChecks(){
+  var rows = [];
+  var g = out.geom || geometry();
+
+  rows.push({
+    ok: true,
+    t: "Size 600 x 600 pixels",
+    i: "Square, 2 x 2 inches at 300 dpi. Measured on the file itself."
+  });
+  rows.push({
+    ok: out.bytes <= SPEC.maxBytes,
+    t: "File size " + fmtKB(out.bytes),
+    i: out.bytes <= SPEC.maxBytes
+        ? "Under the 240 KB DS-160 limit, at JPEG quality " + Math.round(out.quality * 100) + "."
+        : "Over the 240 KB limit even at low quality. Crop a little tighter and try again."
+  });
+
+  var bgOK = false, bgMsg = "";
+  if (!out.bg){ bgMsg = "The background could not be read in this browser."; }
+  else if (out.bg.luma < 185){
+    bgMsg = "The wall behind you is too dark or too coloured. Brightness measured " +
+            Math.round(out.bg.luma) + " out of 255, and it needs to be at least 185.";
+  } else if (out.bg.offShare > 0.10){
+    bgMsg = Math.round(out.bg.offShare * 100) + " percent of the border does not match the wall, so " +
+            "something is behind you: a shadow, a door frame, a poster. It has to be one flat colour.";
+  } else {
+    bgOK = true;
+    bgMsg = "Plain and light. Brightness " + Math.round(out.bg.luma) + " out of 255, " +
+            Math.round(out.bg.offShare * 100) + " percent of the border off-colour.";
+  }
+  rows.push({ ok: bgOK, t: "Background", i: bgMsg });
+
+  rows.push({
+    ok: g.headOK,
+    t: "Head " + (g.head * 100).toFixed(0) + " percent of the frame",
+    i: (g.headOK ? "Inside the 50 to 69 percent required. " : "Outside the 50 to 69 percent required. ") +
+       "Measured between the top and chin lines where you left them."
+  });
+  rows.push({
+    ok: g.eyeOK,
+    t: "Eyes " + (g.eye * 100).toFixed(0) + " percent up from the bottom",
+    i: (g.eyeOK ? "Inside the 56 to 69 percent required. " : "Outside the 56 to 69 percent required. ") +
+       "Measured from the eye line where you left it."
+  });
+
+  var box = $("checks");
+  box.innerHTML = "";
+  rows.forEach(function(r){
+    var el = document.createElement("div");
+    el.className = "chk " + (r.ok ? "ok" : "no");
+    el.innerHTML = '<div class="dot">' + (r.ok ? "&#10003;" : "!") + '</div>' +
+                   '<div class="t"><b></b><i></i></div>';
+    el.querySelector("b").textContent = r.t;
+    el.querySelector("i").textContent = r.i;
+    box.appendChild(el);
+  });
+
+  var hardFail = !bgOK || out.bytes > SPEC.maxBytes || !g.headOK || !g.eyeOK;
+  var note = $("checkNote");
+  note.className = hardFail ? "note bad" : "note good";
+  note.textContent = hardFail
+    ? "This one is not ready, so it cannot be paid for. Go back, fix what is marked above, and a photo that passes here is one you can send."
+    : "Everything this page can measure passes. Now look at the picture yourself: eyes open, mouth closed, no glasses, no shadow on the wall, and it still looks like you.";
+  $("toPay").disabled = hardFail;
+  $("sampleDl").disabled = false;
+}
+
+/* free watermarked sample so anyone can see the pipeline works */
+$("sampleDl").addEventListener("click", function(){
+  if (!out.canvas) return;
+  var N = SPEC.size;
+  var c = document.createElement("canvas");
+  c.width = N; c.height = N;
+  var g = c.getContext("2d");
+  g.drawImage(out.canvas, 0, 0);
+  g.save();
+  g.translate(N / 2, N / 2);
+  g.rotate(-Math.PI / 5);
+  g.font = "600 44px 'Spline Sans', sans-serif";
+  g.textAlign = "center";
+  g.textBaseline = "middle";
+  for (var r = -3; r <= 3; r++){
+    g.fillStyle = r % 2 ? "rgba(255,255,255,.62)" : "rgba(0,0,0,.30)";
+    g.fillText("SAMPLE  visa2x2.com", 0, r * 96);
+  }
+  g.restore();
+  encodeUnder(c, SPEC.maxBytes).then(function(r2){
+    if (r2) saveBlob(r2.blob, "visa-2x2-sample.jpg");
+  });
+});
+
+function saveBlob(blob, name){
+  var u = URL.createObjectURL(blob);
+  var a = document.createElement("a");
+  a.href = u; a.download = name;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(function(){ URL.revokeObjectURL(u); }, 4000);
+}
+
+/* ==================================================================
+   STEP 4 - payment
+   ================================================================== */
+$("toPay").addEventListener("click", function(){ unlock(3); go(3); });
+$("backToCheck").addEventListener("click", function(){ go(2); });
+
+(function initPay(){
+  $("topPrice").textContent = CFG.price + " " + CFG.token.symbol;
+  $("payAmtTitle").textContent = CFG.price + " " + CFG.token.symbol;
+  $("payAmt").textContent = CFG.price.toFixed(2) + " " + CFG.token.symbol;
+  $("payNet").textContent = CFG.chain.name + "  (chain id " + CFG.chain.id + ")";
+  $("payTo").textContent = CFG.payTo;
+  $("payLead").textContent = "Send " + CFG.price + " " + CFG.token.symbol + " on the " +
+    CFG.chain.name + " network to the address below, then paste the transaction hash. Nothing else is asked of you.";
+  try { drawQR($("qr"), CFG.payTo); } catch(e){ $("qr").parentNode.style.display = "none"; }
+})();
+
+$("copyAddr").addEventListener("click", function(){
+  var btn = this;
+  var done = function(){ btn.textContent = "Copied"; setTimeout(function(){ btn.textContent = "Copy address"; }, 1600); };
+  if (navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(CFG.payTo).then(done, fallback);
+  } else fallback();
+  function fallback(){
+    var ta = document.createElement("textarea");
+    ta.value = CFG.payTo; document.body.appendChild(ta); ta.select();
+    try { document.execCommand("copy"); done(); } catch(e){}
+    ta.remove();
+  }
+});
+
+var TRANSFER_TOPIC = "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef";
+
+function rpc(urls, method, params){
+  var body = JSON.stringify({ jsonrpc:"2.0", id:1, method:method, params:params });
+  var i = 0;
+  function attempt(){
+    if (i >= urls.length) return Promise.reject(new Error("no rpc"));
+    var u = urls[i++];
+    return fetch(u, { method:"POST", headers:{ "content-type":"application/json" }, body:body })
+      .then(function(r){ return r.json(); })
+      .then(function(j){ if (j.error) throw new Error(j.error.message || "rpc error"); return j.result; })
+      .catch(function(){ return attempt(); });
+  }
+  return attempt();
+}
+
+function pad32(addr){ return "0x" + "0".repeat(24) + addr.toLowerCase().replace(/^0x/, ""); }
+
+function verifyTx(hash){
+  var note = $("payNote");
+  note.className = "note";
+  note.classList.remove("hidden");
+  note.textContent = "Looking on " + CFG.chain.name + " ...";
+
+  return rpc(CFG.chain.rpc, "eth_getTransactionReceipt", [hash]).then(function(rc){
+    if (!rc) return notOnThisChain(hash);
+    if (rc.status !== "0x1") return fail("That transaction is on " + CFG.chain.name + " but it failed on chain, so no tokens moved.");
+
+    var want = pad32(CFG.payTo);
+    var logs = rc.logs || [];
+    var got = null;
+    for (var i = 0; i < logs.length; i++){
+      var lg = logs[i];
+      if (!lg.topics || lg.topics.length < 3) continue;
+      if (lg.topics[0].toLowerCase() !== TRANSFER_TOPIC) continue;
+      if (lg.address.toLowerCase() !== CFG.token.address.toLowerCase()) continue;
+      if (lg.topics[2].toLowerCase() !== want) continue;
+      got = BigInt(lg.data);
+      break;
+    }
+    if (got === null){
+      return fail("That transaction is on " + CFG.chain.name + ", but it does not contain a " +
+        CFG.token.symbol + " transfer to " + CFG.payTo + ". Check you sent the right token to the right address.");
+    }
+    var need = BigInt(Math.round(CFG.price * Math.pow(10, CFG.token.decimals)));
+    if (got < need){
+      var sent = Number(got) / Math.pow(10, CFG.token.decimals);
+      return fail("Only " + sent + " " + CFG.token.symbol + " arrived. The price is " + CFG.price + ".");
+    }
+    return rpc(CFG.chain.rpc, "eth_blockNumber", []).then(function(bn){
+      var conf = parseInt(bn, 16) - parseInt(rc.blockNumber, 16) + 1;
+      if (conf < CFG.minConfirmations){
+        return fail("Seen on chain but only " + conf + " confirmation. Wait a moment and press again.");
+      }
+      return succeed(hash);
+    });
+  }).catch(function(e){
+    return fail("Could not reach the " + CFG.chain.name + " network right now. Try again in a moment. (" + e.message + ")");
+  });
+
+  function fail(msg){
+    note.className = "note bad";
+    note.textContent = msg;
+    return false;
+  }
+  function notOnThisChain(h){
+    note.textContent = "Not on " + CFG.chain.name + ". Checking the other networks ...";
+    var checks = OTHER_CHAINS.map(function(ch){
+      return rpc(ch.rpc, "eth_getTransactionReceipt", [h])
+        .then(function(r){ return r ? ch.name : null; })
+        .catch(function(){ return null; });
+    });
+    return Promise.all(checks).then(function(res){
+      var hit = res.filter(Boolean)[0];
+      if (hit){
+        return fail("That transaction is real, but it is on " + hit + ", not on " + CFG.chain.name +
+          ". Tokens sent to this address on " + hit + " cannot be recovered. Email " + CFG.contact +
+          " with the hash before you send anything else.");
+      }
+      return fail("No transaction with that hash exists yet on " + CFG.chain.name +
+        " or on any of the other networks checked. If you have only just sent it, wait about thirty seconds and press again.");
+    });
+  }
+  function succeed(h){
+    note.className = "note good";
+    note.textContent = "Payment confirmed on " + CFG.chain.name + ".";
+    var used = store("v2x2_paid") || "";
+    if (used.indexOf(h.toLowerCase()) < 0) store("v2x2_paid", (used + " " + h.toLowerCase()).trim());
+    return true;
+  }
+}
+
+$("verify").addEventListener("click", function(){
+  var btn = this;
+  var h = ($("txh").value || "").trim();
+  if (!/^0x[0-9a-fA-F]{64}$/.test(h)){
+    var n = $("payNote");
+    n.className = "note bad"; n.classList.remove("hidden");
+    n.textContent = "A transaction hash is 0x followed by 64 characters. Copy it from your wallet.";
+    return;
+  }
+  btn.disabled = true; btn.textContent = "Checking ...";
+  verifyTx(h).then(function(ok){
+    btn.disabled = false; btn.textContent = "Check the payment";
+    if (ok) openFinal();
+  });
+});
+
+/* a hash already used on this device jumps straight through */
+(function reuse(){
+  var used = (store("v2x2_paid") || "").trim();
+  if (!used) return;
+  $("txh").value = used.split(/\s+/).pop();
+})();
+
+/* ==================================================================
+   STEP 5 - the file
+   ================================================================== */
+function openFinal(){
+  $("finalImg").src = out.url;
+  var s = $("finalStats");
+  s.innerHTML = "";
+  [["600 x 600 pixels", "Exactly 2 x 2 inches at 300 dpi"],
+   [fmtKB(out.bytes), "Under the 240 KB DS-160 limit"],
+   ["JPEG, sRGB", "The format the portal expects"]].forEach(function(p){
+    var el = document.createElement("div");
+    el.className = "chk ok";
+    el.innerHTML = '<div class="dot">&#10003;</div><div class="t"><b></b><i></i></div>';
+    el.querySelector("b").textContent = p[0];
+    el.querySelector("i").textContent = p[1];
+    s.appendChild(el);
+  });
+  unlock(4); go(4);
+}
+$("dlFinal").addEventListener("click", function(){
+  if (out.blob) saveBlob(out.blob, "us-visa-photo-2x2.jpg");
+});
+
+/* forget the picture when the page goes away */
+window.addEventListener("pagehide", function(){
+  try {
+    if (out.url) URL.revokeObjectURL(out.url);
+    out.blob = null; out.canvas = null; srcImg = null;
+  } catch(e){}
+});
+
+/* ==================================================================
+   QR CODE - byte mode, ECC level L, versions 1 to 5.
+   An EVM address is 42 bytes, which lands on version 3.
+   ================================================================== */
+function drawQR(canvas, text){
+  var m = qrMatrix(text);
+  var n = m.length;
+  var g = canvas.getContext("2d");
+  var quiet = 4, total = n + quiet * 2;
+  var scale = Math.floor(canvas.width / total) || 1;
+  var off = Math.floor((canvas.width - scale * total) / 2);
+  g.fillStyle = "#f4ece0";
+  g.fillRect(0, 0, canvas.width, canvas.height);
+  g.fillStyle = "#14110d";
+  for (var y = 0; y < n; y++){
+    for (var x = 0; x < n; x++){
+      if (m[y][x]) g.fillRect(off + (x + quiet) * scale, off + (y + quiet) * scale, scale, scale);
+    }
+  }
+}
+
+function qrMatrix(text, forceMask){
+  var CAP_L = [null, 19, 34, 55, 80, 108];       // data codewords, ECC L, versions 1..5
+  var ECC_L = [null, 7, 10, 15, 20, 26];         // ec codewords per block (single block up to v5)
+  var ALIGN = [null, null, 18, 22, 26, 30];
+
+  var bytes = [];
+  for (var i = 0; i < text.length; i++){
+    var c = text.charCodeAt(i);
+    if (c < 128) bytes.push(c);
+    else { // utf-8, kept for safety even though an address is ascii
+      if (c < 2048){ bytes.push(192 | (c >> 6), 128 | (c & 63)); }
+      else { bytes.push(224 | (c >> 12), 128 | ((c >> 6) & 63), 128 | (c & 63)); }
+    }
+  }
+  var ver = 0;
+  for (var v = 1; v <= 5; v++){
+    if (bytes.length + 2 <= CAP_L[v]) { ver = v; break; }
+  }
+  if (!ver) throw new Error("too long for this qr encoder");
+
+  var totalData = CAP_L[ver], ecLen = ECC_L[ver];
+
+  // bit stream
+  var bits = [];
+  function put(val, len){ for (var b = len - 1; b >= 0; b--) bits.push((val >> b) & 1); }
+  put(4, 4);                       // byte mode
+  put(bytes.length, 8);            // count, 8 bits for versions 1..9
+  for (var k = 0; k < bytes.length; k++) put(bytes[k], 8);
+  var cap = totalData * 8;
+  var term = Math.min(4, cap - bits.length);
+  for (var t = 0; t < term; t++) bits.push(0);
+  while (bits.length % 8) bits.push(0);
+  var data = [];
+  for (var p = 0; p < bits.length; p += 8){
+    var byt = 0;
+    for (var q = 0; q < 8; q++) byt = (byt << 1) | bits[p + q];
+    data.push(byt);
+  }
+  var padPair = [0xEC, 0x11], pi = 0;
+  while (data.length < totalData) data.push(padPair[pi++ % 2]);
+
+  var all = data.concat(rsEncode(data, ecLen));
+
+  // ---- matrix skeleton ----
+  var n = 17 + ver * 4;
+  var mat = [], res = [];
+  for (var y = 0; y < n; y++){ mat.push(new Array(n).fill(0)); res.push(new Array(n).fill(false)); }
+
+  function setF(x, y, val){ if (x >= 0 && y >= 0 && x < n && y < n){ mat[y][x] = val; res[y][x] = true; } }
+
+  function finder(cx, cy){
+    for (var dy = -1; dy <= 7; dy++){
+      for (var dx = -1; dx <= 7; dx++){
+        var x = cx + dx, y = cy + dy;
+        if (x < 0 || y < 0 || x >= n || y >= n) continue;
+        var on = (dx >= 0 && dx <= 6 && (dy === 0 || dy === 6)) ||
+                 (dy >= 0 && dy <= 6 && (dx === 0 || dx === 6)) ||
+                 (dx >= 2 && dx <= 4 && dy >= 2 && dy <= 4);
+        setF(x, y, on ? 1 : 0);
+      }
+    }
+  }
+  finder(0, 0); finder(n - 7, 0); finder(0, n - 7);
+
+  for (var a = 8; a < n - 8; a++){
+    setF(a, 6, a % 2 === 0 ? 1 : 0);
+    setF(6, a, a % 2 === 0 ? 1 : 0);
+  }
+  if (ALIGN[ver]){
+    var ac = ALIGN[ver];
+    for (var dy2 = -2; dy2 <= 2; dy2++){
+      for (var dx2 = -2; dx2 <= 2; dx2++){
+        setF(ac + dx2, ac + dy2, Math.max(Math.abs(dx2), Math.abs(dy2)) !== 1 ? 1 : 0);
+      }
+    }
+  }
+  setF(8, n - 8, 1);                            // the always-dark module
+
+  // reserve the two format-information strips
+  for (var f = 0; f < 15; f++){
+    var p1 = fmtPosV(f, n), p2 = fmtPosH(f, n);
+    res[p1[0]][p1[1]] = true;
+    res[p2[0]][p2[1]] = true;
+  }
+
+  // ---- data placement: two-wide columns, zigzag up then down ----
+  var stream = [];
+  for (var bi = 0; bi < all.length; bi++){
+    for (var bb = 7; bb >= 0; bb--) stream.push((all[bi] >> bb) & 1);
+  }
+  var bitIdx = 0, up = true;
+  for (var col = n - 1; col > 0; col -= 2){
+    if (col === 6) col--;
+    for (var i2 = 0; i2 < n; i2++){
+      var yy = up ? (n - 1 - i2) : i2;
+      for (var c2 = 0; c2 < 2; c2++){
+        var xx = col - c2;
+        if (!res[yy][xx]){
+          mat[yy][xx] = bitIdx < stream.length ? stream[bitIdx] : 0;
+          bitIdx++;
+        }
+      }
+    }
+    up = !up;
+  }
+
+  // ---- pick the mask with the lowest penalty ----
+  var best = null, bestScore = Infinity;
+  for (var mk = 0; mk < 8; mk++){
+    if (forceMask !== undefined && mk !== forceMask) continue;
+    var cand = applyMask(mat, res, n, mk);
+    writeFormat(cand, n, mk);
+    var sc = penalty(cand, n);
+    if (sc < bestScore){ bestScore = sc; best = cand; }
+  }
+  return best;
+}
+
+/* The 15 format bits are written twice: once down column 8, once along
+   row 8. These give [row, col] for bit i of each copy. Row 6 and column 6
+   are timing, and (n-8, 8) is the dark module, so both strips step over them. */
+function fmtPosV(i, n){
+  if (i < 6) return [i, 8];
+  if (i < 8) return [i + 1, 8];
+  return [n - 15 + i, 8];
+}
+function fmtPosH(i, n){
+  if (i < 8) return [8, n - 1 - i];
+  if (i === 8) return [8, 7];
+  return [8, 14 - i];
+}
+
+function applyMask(mat, res, n, mask){
+  var o = [];
+  for (var y = 0; y < n; y++){
+    o.push([]);
+    for (var x = 0; x < n; x++){
+      var v = mat[y][x] || 0;
+      if (!res[y][x]){
+        var flip = false;
+        switch (mask){
+          case 0: flip = (y + x) % 2 === 0; break;
+          case 1: flip = y % 2 === 0; break;
+          case 2: flip = x % 3 === 0; break;
+          case 3: flip = (y + x) % 3 === 0; break;
+          case 4: flip = (Math.floor(y / 2) + Math.floor(x / 3)) % 2 === 0; break;
+          case 5: flip = ((y * x) % 2) + ((y * x) % 3) === 0; break;
+          case 6: flip = ((((y * x) % 2) + ((y * x) % 3)) % 2) === 0; break;
+          case 7: flip = ((((y + x) % 2) + ((y * x) % 3)) % 2) === 0; break;
+        }
+        if (flip) v ^= 1;
+      }
+      o[y].push(v);
+    }
+  }
+  return o;
+}
+
+function writeFormat(m, n, mask){
+  var data = (1 << 3) | mask;                   // error level L is 01, then the 3 mask bits
+  var d = data << 10;
+  for (var i = 14; i >= 10; i--){ if ((d >> i) & 1) d ^= 0x537 << (i - 10); }
+  var bitsv = ((data << 10) | d) ^ 0x5412;
+  for (var k = 0; k < 15; k++){
+    var b = (bitsv >> k) & 1;
+    var p1 = fmtPosV(k, n), p2 = fmtPosH(k, n);
+    m[p1[0]][p1[1]] = b;
+    m[p2[0]][p2[1]] = b;
+  }
+  m[n - 8][8] = 1;                              // dark module, never masked
+}
+
+function penalty(m, n){
+  var s = 0, x, y, i;
+  for (y = 0; y < n; y++){
+    var run = 1;
+    for (x = 1; x < n; x++){
+      if (m[y][x] === m[y][x - 1]) run++;
+      else { if (run >= 5) s += 3 + (run - 5); run = 1; }
+    }
+    if (run >= 5) s += 3 + (run - 5);
+  }
+  for (x = 0; x < n; x++){
+    var run2 = 1;
+    for (y = 1; y < n; y++){
+      if (m[y][x] === m[y - 1][x]) run2++;
+      else { if (run2 >= 5) s += 3 + (run2 - 5); run2 = 1; }
+    }
+    if (run2 >= 5) s += 3 + (run2 - 5);
+  }
+  for (y = 0; y < n - 1; y++){
+    for (x = 0; x < n - 1; x++){
+      var v = m[y][x];
+      if (v === m[y][x+1] && v === m[y+1][x] && v === m[y+1][x+1]) s += 3;
+    }
+  }
+  var dark = 0;
+  for (y = 0; y < n; y++) for (x = 0; x < n; x++) if (m[y][x]) dark++;
+  var pct = dark * 100 / (n * n);
+  s += Math.floor(Math.abs(pct - 50) / 5) * 10;
+  return s;
+}
+
+/* Reed-Solomon over GF(256) */
+var GF_EXP = new Uint8Array(512), GF_LOG = new Uint8Array(256);
+(function initGF(){
+  var v = 1;
+  for (var i = 0; i < 255; i++){
+    GF_EXP[i] = v; GF_LOG[v] = i;
+    v <<= 1; if (v & 0x100) v ^= 0x11D;
+  }
+  for (var j = 255; j < 512; j++) GF_EXP[j] = GF_EXP[j - 255];
+})();
+function gmul(a, b){ if (!a || !b) return 0; return GF_EXP[GF_LOG[a] + GF_LOG[b]]; }
+function rsEncode(data, ecLen){
+  var gen = [1];
+  for (var i = 0; i < ecLen; i++){
+    var next = new Array(gen.length + 1).fill(0);
+    for (var j = 0; j < gen.length; j++){
+      next[j] ^= gen[j];                          // the x term keeps the degree order
+      next[j + 1] ^= gmul(gen[j], GF_EXP[i]);     // the alpha term drops one degree
+    }
+    gen = next;
+  }
+  var rem = new Array(ecLen).fill(0);
+  for (var k = 0; k < data.length; k++){
+    var factor = data[k] ^ rem[0];
+    rem.shift(); rem.push(0);
+    for (var m = 0; m < ecLen; m++) rem[m] ^= gmul(gen[m + 1], factor);
+  }
+  return rem;
+}
+
+/* keyboard: left and right move between steps */
+document.addEventListener("keydown", function(e){
+  var tag = (e.target && e.target.tagName) || "";
+  if (tag === "INPUT" || tag === "TEXTAREA") return;
+  if (e.key === "ArrowRight" && step < maxStep) go(step + 1);
+  if (e.key === "ArrowLeft" && step > 0) go(step - 1);
+});
+
+window.addEventListener("resize", function(){ if (srcImg) draw(); });
+</script>
+</body>
+</html>
